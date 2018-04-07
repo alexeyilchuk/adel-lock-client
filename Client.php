@@ -61,7 +61,7 @@ class Client
      */
     public function readCard($ddss)
     {
-        $this->adapter->getRead;
+        $this->adapter->readCard($ddss);
     }
 
     /**
