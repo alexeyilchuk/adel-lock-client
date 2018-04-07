@@ -1,12 +1,33 @@
 <?php
 namespace Adapters;
 
+/**
+ * Class AbstractAdapter
+ * @package Adapters
+ */
 abstract class AbstractAdapter
 {
-    protected $ccMap;             // control characters map
-    protected $commandCodesMap;   // command codes map
-    protected $fieldsMap;         // field codes map
+    /**
+     * Control characters map.
+     * @var array
+     */
+    protected $ccMap;
 
+    /**
+     * Command codes map.
+     * @var array
+     */
+    protected $commandCodesMap;
+
+    /**
+     * Field codes map
+     * @var array
+     */
+    protected $fieldsMap;
+
+    /**
+     * AbstractAdapter constructor.
+     */
     public function __construct()
     {
         $this->ccMap = [
@@ -29,10 +50,15 @@ abstract class AbstractAdapter
         ];
     }
 
+    /**
+     * Validate ddss: dd - target address ss - source address
+     * @param $ddss
+     * @throws \Exception
+     */
     protected function validateDdSs($ddss)
     {
         if (!preg_match('/[0-9]{4}/', $ddss)) {
-            throw new \Exception('ddss parameter is invlid');
+            throw new \Exception('ddss -(target address, source address) parameter is invalid');
         }
     }
 }
