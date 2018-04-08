@@ -2,8 +2,9 @@
 namespace AdelLock\Adapters;
 
 use AdelLock\AdelAdapterInterface;
-use Entities\Guest;
-use Entities\Room;
+use AdelLock\Entities\Guest;
+use AdelLock\Entities\Room;
+use AdelLock\Exceptions\AdelException;
 
 /**
  * Class FileAdapter
@@ -97,7 +98,7 @@ class FileAdapter extends AbstractAdapter implements AdelAdapterInterface
         $fileId = $namePrefix . '_' . sha1($str);
         $filename = sprintf("%s/%s.REQ", $this->outputFolder, $fileId);
         if (false === file_put_contents($filename, $str)) {
-            throw new \AdelException('Unable to write file');
+            throw new AdelException(sprintf('Unable to write file: %s', $filename));
         }
 
         return $fileId;

@@ -80,7 +80,7 @@ class Guest
      */
     public function getFullName()
     {
-        return sprintf('% %', $this->firstName, $this->lastName);
+        return sprintf('%s %s', $this->firstName, $this->lastName);
     }
 
     /**

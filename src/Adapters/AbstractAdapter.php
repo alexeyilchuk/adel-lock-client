@@ -1,5 +1,6 @@
 <?php
 namespace AdelLock\Adapters;
+use AdelLock\Exceptions\AdelException;
 
 /**
  * Class AbstractAdapter
@@ -58,7 +59,7 @@ abstract class AbstractAdapter
     protected function validateDdSs($ddss)
     {
         if (!preg_match('/\d{4}/', $ddss)) {
-            throw new \AdelException('ddss -(target address, source address) parameter is invalid');
+            throw new AdelException(sprintf('ddss -(target address, source address) parameter is invalid. Expected 4 digit value, but got %s', $ddss));
         }
     }
 }
