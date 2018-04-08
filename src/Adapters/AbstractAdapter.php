@@ -1,5 +1,5 @@
 <?php
-namespace Adapters;
+namespace AdelLock\Adapters;
 
 /**
  * Class AbstractAdapter
@@ -57,8 +57,8 @@ abstract class AbstractAdapter
      */
     protected function validateDdSs($ddss)
     {
-        if (!preg_match('/[0-9]{4}/', $ddss)) {
-            throw new \Exception('ddss -(target address, source address) parameter is invalid');
+        if (!preg_match('/\d{4}/', $ddss)) {
+            throw new \AdelException('ddss -(target address, source address) parameter is invalid');
         }
     }
 }

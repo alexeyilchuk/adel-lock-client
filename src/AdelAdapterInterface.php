@@ -1,7 +1,8 @@
 <?php
 namespace AdelLock;
-use Entities\Guest;
-use Entities\Room;
+
+use AdelLock\Entities\Guest;
+use AdelLock\Entities\Room;
 
 /**
  * Interface AdelAdapterInterface

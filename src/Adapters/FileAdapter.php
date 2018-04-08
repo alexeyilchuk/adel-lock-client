@@ -1,5 +1,5 @@
 <?php
-namespace Adapters;
+namespace AdelLock\Adapters;
 
 use AdelLock\AdelAdapterInterface;
 use Entities\Guest;
@@ -95,9 +95,9 @@ class FileAdapter extends AbstractAdapter implements AdelAdapterInterface
     private function writeFile($str, $namePrefix = '')
     {
         $fileId = $namePrefix . '_' . sha1($str);
-        $filename = $this->outputFolder . '/' . $fileId . '.REQ';
+        $filename = sprintf("%s/%s.REQ", $this->outputFolder, $fileId);
         if (false === file_put_contents($filename, $str)) {
-            throw new \Exception('Unable to write file');
+            throw new \AdelException('Unable to write file');
         }
 
         return $fileId;

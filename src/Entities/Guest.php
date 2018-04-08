@@ -1,5 +1,5 @@
 <?php
-namespace Entities;
+namespace AdelLock\Entities;
 
 /**
  * Class Guest
@@ -49,10 +49,12 @@ class Guest
 
     /**
      * @param mixed $firstName
+     * @return Guest
      */
     public function setFirstName($firstName)
     {
         $this->firstName = $firstName;
+        return $this;
     }
 
     /**
@@ -65,10 +67,12 @@ class Guest
 
     /**
      * @param mixed $lastName
+     * @return Guest
      */
     public function setLastName($lastName)
     {
         $this->lastName = $lastName;
+        return $this;
     }
 
     /**
@@ -76,7 +80,7 @@ class Guest
      */
     public function getFullName()
     {
-        return $this->firstName .' '. $this->lastName;
+        return sprintf('% %', $this->firstName, $this->lastName);
     }
 
     /**
@@ -89,10 +93,12 @@ class Guest
 
     /**
      * @param \DateTime $checkInTime
+     * @return Guest
      */
     public function setCheckInTime(\DateTime $checkInTime)
     {
         $this->checkInTime = $checkInTime;
+        return $this;
     }
 
     /**
@@ -105,10 +111,12 @@ class Guest
 
     /**
      * @param \DateTime $checkOutTime
+     * @return Guest
      */
     public function setCheckOutTime(\DateTime $checkOutTime)
     {
         $this->checkOutTime = $checkOutTime;
+        return $this;
     }
 
 }
