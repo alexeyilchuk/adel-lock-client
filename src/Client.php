@@ -1,7 +1,7 @@
 <?php
 namespace AdelLock;
-use Entities\Room;
-use Entities\Guest;
+use AdelLock\Entities\Room;
+use AdelLock\Entities\Guest;
 
 /**
  * Class Client implements basic commands to the Adel Lock server
