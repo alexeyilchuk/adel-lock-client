@@ -47,7 +47,7 @@ class FileAdapter extends AbstractAdapter implements AdelAdapterInterface
             . $this->ccMap['end']
         ;
 
-        return $this->writeFile($str, ($isNew ? 'check_in' : 'check_in_add'));
+        return $this->writeFile($str, $ddss);
     }
 
     /**
@@ -65,7 +65,7 @@ class FileAdapter extends AbstractAdapter implements AdelAdapterInterface
             . $this->ccMap['end']
         ;
 
-        return $this->writeFile($str, 'check_out');
+        return $this->writeFile($str, $ddss);
     }
 
     /**
@@ -89,13 +89,13 @@ class FileAdapter extends AbstractAdapter implements AdelAdapterInterface
     /**
      * Write data to file with unique filename/
      * @param $str
-     * @param string $namePrefix
+     * @param string $ddss
      * @return string
      * @throws \Exception
      */
-    private function writeFile($str, $namePrefix = '')
+    private function writeFile($str, $ddss)
     {
-        $fileId = $namePrefix . '_' . sha1($str);
+        $fileId = $ddss . '_' . date('h_m_s');
         $filename = sprintf("%s/%s.REQ", $this->outputFolder, $fileId);
         if (false === file_put_contents($filename, $str)) {
             throw new AdelException(sprintf('Unable to write file: %s', $filename));
