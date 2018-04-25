@@ -95,7 +95,7 @@ class FileAdapter extends AbstractAdapter implements AdelAdapterInterface
      */
     private function writeFile($str, $ddss)
     {
-        $fileId = $ddss . '_' . date('h_m_s');
+        $fileId = $ddss . '_' . date('H_i_s');
         $filename = sprintf("%s/%s.REQ", $this->outputFolder, $fileId);
         if (false === file_put_contents($filename, $str)) {
             throw new AdelException(sprintf('Unable to write file: %s', $filename));
