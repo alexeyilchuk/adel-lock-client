@@ -42,8 +42,8 @@ class FileAdapter extends AbstractAdapter implements AdelAdapterInterface
             . $ddss . ($isNew ? $this->commandCodesMap['check_in_new'] : $this->commandCodesMap['check_in_add'])
             . $this->ccMap['sep'] . $this->fieldsMap['room_number'] . $room->getNumber()
             . $this->ccMap['sep'] . $this->fieldsMap['guest_name'] . $guest->getFullName()
-            . $this->ccMap['sep'] . $this->fieldsMap['check_in_time'] . $guest->getCheckInTime()->format('Ymdhm')
-            . $this->ccMap['sep'] . $this->fieldsMap['check_out_time'] . $guest->getCheckOutTime()->format('Ymdhm')
+            . $this->ccMap['sep'] . $this->fieldsMap['check_in_time'] . $guest->getCheckInTime()->format('YmdHi')
+            . $this->ccMap['sep'] . $this->fieldsMap['check_out_time'] . $guest->getCheckOutTime()->format('YmdHi')
             . $this->ccMap['end']
         ;
 
